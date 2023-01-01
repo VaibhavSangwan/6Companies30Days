@@ -1,0 +1,42 @@
+class Solution {
+public:
+    string getHint(string s, string g) {
+        int c=0;
+        int d=0;
+        vector<char>v;
+        vector<char>u;
+        for(int i=0;i<s.size();i++){
+            if(s[i]==g[i]){
+                c++;
+
+            }else{
+                v.push_back(s[i]);
+                u.push_back(g[i]);
+
+            }
+        }
+       
+       for(int i=0;i<v.size();i++){
+           for(int j=0;j<u.size();j++){
+               if(v[i]==u[j]){
+                   u[j]='.';
+                   d++;
+                   break;
+               }
+           }
+       }
+
+       cout<<c<<" "<<d<<endl;
+       string xx=to_string(c);
+       string yy=to_string(d);
+
+string ans="";
+ans+=(xx);
+ans.push_back('A');
+ans+=(yy);
+ans.push_back('B');
+
+return ans;
+
+    }
+};
