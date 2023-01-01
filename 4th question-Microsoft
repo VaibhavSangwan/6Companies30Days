@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int maxRotateFunction(vector<int>& nums) {
+        int sum=0;
+        int n=nums.size();
+
+        for(int i=0;i<nums.size();i++){
+            sum+=nums[i];
+
+        }
+        vector<int>ans;
+        int c=0;
+        for(int i=0;i<nums.size();i++){
+            c+=i*nums[i];
+
+        }
+        ans.push_back(c);
+       for(int i=n-1;i>0;i--){
+           c=(c-(nums[i]*(n-1)));
+           c+=(sum-nums[i]);
+            ans.push_back(c);
+            cout<<c<<" ";
+
+       }
+       sort(ans.rbegin(),ans.rend());
+       return ans[0];
+
+    }
+};
